@@ -113,40 +113,82 @@ body{
 }
 
 .calculator .buttons span#plus{
-    grid-row: span 2;
+    grid-row: span 1;
     background: #49f436;
     color: #ffffff;
     border: 2px solid #edf1f4;
 }
 
 .calculator .buttons span#equal{
-    grid-row: span 2;
+    grid-row: span 1;
     background: #6bdce7;
     color: #ffffff;
     border: 2px solid #edf1f4;
 }
 
-.toggle-btn{
+.toggle-btn {
     position: fixed;
-    width: 20px;
-    height: 20px;
-    background: #555;
-
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     top: 20px;
     right: 20px;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid #edf1f4;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.1),
-    -5px -5px 10px #fff;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 -4px 20px rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.toggle-btn::before {
+    content: "🌙";
+    transition: transform 0.5s ease;
+}
+
+.toggle-btn:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3), 0 -6px 25px rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
 }
 
 .dark .toggle-btn {
-    background: #edf1f4;
-    border: 2px solid #333;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1),
-    -3px -3px 5px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #434343, #000000);
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.3), 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
+
+.dark .toggle-btn::before {
+    content: "☀️";
+    transition: transform 0.5s ease;
+}
+
+.dark .toggle-btn:hover {
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.5), 0 -6px 25px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.toggle-btn {
+    animation: pulsate 2s infinite;
+}
+
 
 
 
